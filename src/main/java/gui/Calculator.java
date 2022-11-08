@@ -18,7 +18,7 @@ public class Calculator extends VBox implements EventHandler<ActionEvent>{
 	String number2 = "";
 	String operator;
 	Text displayText;
-	boolean bandera;
+	boolean boleano;
 
 	public Calculator(){
 		super(10);
@@ -129,11 +129,11 @@ public class Calculator extends VBox implements EventHandler<ActionEvent>{
 		Button b = (Button) event.getSource();
 		String value = b.getText();
 
-		if (value.equals("/") || value.equals("+") || value.equals("-") || value.equals("*")){
+		if (value == "/"|| value == "+" || value == "-" || value == "*"){
 			operator = value;
-			bandera = true;
-		}else if (!value.equals("=") && !value.equals("C")){
-			if (!bandera) number1+=value; else number2+=value;
+			boleano = true;
+		}else if (value != "=" && value != "C"){
+			if (!boleano) number1+=value; else number2+=value;
 		}
 
 		if (value.equals("=")){
@@ -151,12 +151,15 @@ public class Calculator extends VBox implements EventHandler<ActionEvent>{
 					displayText.setText(Double.toString(Integer.parseInt(number1)-Integer.parseInt(number2)));
 					break;
 			}
-			bandera = false;
+			boleano = false;
 			number1 = "";
 			number2 = "";
-		} else if (value.equals("C")) {
+		} else if (value == "C") {
 			displayText.setText("");
 		}
+
+
+
 	}
 
 

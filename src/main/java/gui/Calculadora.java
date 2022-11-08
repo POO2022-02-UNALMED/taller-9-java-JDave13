@@ -21,5 +21,4 @@ public class Calculadora extends Application  {
 		window.setScene(sc);
 		window.show();
 	}
-
 }
